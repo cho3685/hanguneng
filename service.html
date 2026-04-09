@@ -200,9 +200,10 @@
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/></svg>
         소방·설비공사
       </button>
-      <button class="tab-btn" data-target="renewable">
+      <button class="tab-btn" data-target="renewable" style="opacity:.55;cursor:not-allowed;" disabled>
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
         신재생에너지
+        <span style="background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;padding:2px 6px;border-radius:2px;letter-spacing:.08em;margin-left:4px;">준비중</span>
       </button>
       <button class="tab-btn" data-target="maintenance">
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -288,39 +289,40 @@
   </div>
 </section>
 
-<!-- ═══ 03 신재생에너지 ═══ -->
-<section id="renewable" class="svc-section">
-  <div class="container">
-    <div class="svc-detail reveal">
+<!-- ═══ 03 신재생에너지 (준비중) ═══ -->
+<section id="renewable" class="svc-section" style="position:relative;">
+  <!-- 준비중 오버레이 -->
+  <div style="position:absolute;inset:0;background:rgba(255,255,255,.7);z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;backdrop-filter:blur(2px);">
+    <div style="display:flex;align-items:center;gap:12px;background:var(--navy);color:#fff;padding:16px 32px;border-radius:4px;box-shadow:0 8px 32px rgba(11,30,61,.18);">
+      <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div>
+        <div style="font-size:16px;font-weight:900;letter-spacing:-.01em;">신재생에너지 서비스 준비중</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.6);margin-top:3px;">현재 서비스 준비 중입니다. 관련 문의는 전화로 연락 주세요.</div>
+      </div>
+    </div>
+    <a href="tel:02-476-3685" style="font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;display:flex;align-items:center;gap:6px;">
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+      02-476-3685 문의하기
+    </a>
+  </div>
+  <div class="container" style="opacity:.25;pointer-events:none;">
+    <div class="svc-detail">
       <div class="svc-img">
         <div class="svc-img-ph">
           <svg width="52" height="52" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
           <span>태양광 설비 시공 사진</span>
         </div>
       </div>
-      <div class="reveal rd1">
+      <div>
         <div class="svc-tag">Service 03</div>
         <h2 class="svc-h2">신재생에너지</h2>
         <p class="svc-body">신재생에너지발전설비기사 자격 보유 전문 인력이 태양광·ESS 등 신재생에너지 발전시스템 설계부터 시공, 계통 연계, 사후 관리까지 원스톱으로 제공합니다.</p>
         <div class="svc-items">
-          <div class="svc-item">
-            <div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m8.66-13l-.87.5M4.21 15.5l-.87.5M20.66 15.5l-.87-.5M4.21 8.5l-.87-.5M21 12h-1M4 12H3"/><circle cx="12" cy="12" r="4"/></svg></div>
-            <div><div class="svc-item-title">태양광 발전 설비</div><div class="svc-item-desc">주택용·산업용·발전소용 태양광 패널 설치 및 배선</div></div>
-          </div>
-          <div class="svc-item">
-            <div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-            <div><div class="svc-item-title">계통 연계 공사</div><div class="svc-item-desc">한전 계통 연계, 인버터 설치, 수배전반 연동</div></div>
-          </div>
-          <div class="svc-item">
-            <div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path stroke-linecap="round" d="M16 3l-4 4-4-4"/></svg></div>
-            <div><div class="svc-item-title">ESS 설치</div><div class="svc-item-desc">에너지저장장치(ESS) 설계 및 설치, 태양광 연동</div></div>
-          </div>
-          <div class="svc-item">
-            <div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg></div>
-            <div><div class="svc-item-title">인허가·사후 관리</div><div class="svc-item-desc">발전사업 허가 대행, 정기 점검 및 유지보수</div></div>
-          </div>
+          <div class="svc-item"><div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/></svg></div><div><div class="svc-item-title">태양광 발전 설비</div><div class="svc-item-desc">주택용·산업용·발전소용 태양광 패널 설치 및 배선</div></div></div>
+          <div class="svc-item"><div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><div><div class="svc-item-title">계통 연계 공사</div><div class="svc-item-desc">한전 계통 연계, 인버터 설치, 수배전반 연동</div></div></div>
+          <div class="svc-item"><div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/></svg></div><div><div class="svc-item-title">ESS 설치</div><div class="svc-item-desc">에너지저장장치(ESS) 설계 및 설치, 태양광 연동</div></div></div>
+          <div class="svc-item"><div class="svc-item-icon"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/></svg></div><div><div class="svc-item-title">인허가·사후 관리</div><div class="svc-item-desc">발전사업 허가 대행, 정기 점검 및 유지보수</div></div></div>
         </div>
-        <a href="contact.html" class="btn-consult">상담 문의하기 →</a>
       </div>
     </div>
   </div>
@@ -392,7 +394,7 @@
       </div>
       <div class="ft-col"><div class="ft-col-title">바로가기</div><ul><li><a href="about.html">회사 소개</a></li><li><a href="service.html">사업 분야</a></li><li><a href="works.html">시공 실적</a></li><li><a href="contact.html">문의하기</a></li></ul></div>
       <div class="ft-col"><div class="ft-col-title">사업 분야</div><ul><li><a href="#electric">전기공사</a></li><li><a href="#fire">소방·설비공사</a></li><li><a href="#renewable">신재생에너지</a></li><li><a href="#maintenance">유지보수 점검</a></li></ul></div>
-      <div class="ft-info ft-col"><div class="ft-col-title">연락처</div><p><strong>전화</strong> 02-476-3685</p><p><strong>이메일</strong> info@hanguneng.co.kr</p><p><strong>주소</strong> 주소를 입력해주세요</p><p style="margin-top:10px"><strong>개업일</strong> 2020년 8월 20일</p></div>
+      <div class="ft-info ft-col"><div class="ft-col-title">연락처</div><p><strong>전화</strong> 02-476-3685</p><p><strong>이메일</strong> hangun2020@naver.com</p><p><strong>주소</strong> 서울시 강동구 천중로35길 14, 1층 북측점포</p><p style="margin-top:10px"><strong>전기공사면허등록번호</strong> 서울-06046</p></div>
     </div>
     <div class="footer-bottom">
       <p>© 2020–<span id="footer-year"></span> 한건이엔지 HANGUNENG.INC. All rights reserved.</p>
