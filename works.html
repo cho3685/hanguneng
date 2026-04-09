@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="한건이엔지 시공실적 - 전기공사, 소방설비, 신재생에너지 분야 주요 시공 포트폴리오">
+  <title>시공실적 | 한건이엔지 HANGUNENG.INC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:#0B1E3D; --navy-mid:#132847; --navy-light:#1D3A62;
+      --gold:#E8A600; --gold-light:#F5C23A; --gold-dark:#B88000;
+      --white:#FFFFFF; --off-white:#F6F4EF;
+      --text:#1A1A2E; --muted:#5A5A72; --border:#E2E0DA;
+      --font-body:'Noto Sans KR',sans-serif; --font-disp:'Bebas Neue',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);color:var(--text);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit} ul{list-style:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 24px}
+    .section{padding:96px 0}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .section-title{font-size:clamp(28px,4vw,40px);font-weight:900;line-height:1.2;color:var(--navy);margin-bottom:16px}
+
+    /* HEADER */
+    #header{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);box-shadow:0 2px 24px rgba(0,0,0,.25)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .logo-wrap{display:flex;align-items:center;gap:10px}
+    .logo-svg{display:block;width:42px;height:28px}
+    .logo-svg path{fill:#fff}
+    .logo-txt{display:flex;flex-direction:column;line-height:1}
+    .logo-ko{font-size:19px;font-weight:900;color:#fff;letter-spacing:-.02em}
+    .logo-ko .acc{color:var(--gold)}
+    .logo-en{font-family:var(--font-disp);font-size:10px;letter-spacing:.22em;color:rgba(255,255,255,.42);margin-top:2px}
+    .nav-menu{display:flex;align-items:center;gap:36px}
+    .nav-menu a{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);transition:color .2s;position:relative}
+    .nav-menu a::after{content:'';position:absolute;bottom:-4px;left:0;right:100%;height:2px;background:var(--gold);transition:right .25s}
+    .nav-menu a:hover,.nav-menu a.active{color:#fff}
+    .nav-menu a:hover::after,.nav-menu a.active::after{right:0}
+    .btn-call{display:flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-size:14px;font-weight:700;padding:10px 20px;border-radius:4px;transition:background .2s,transform .15s}
+    .btn-call:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
+
+    /* PAGE HERO */
+    #page-hero{background:var(--navy);padding:140px 0 80px;position:relative;overflow:hidden}
+    .ph-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(232,166,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(232,166,0,.05) 1px,transparent 1px);background-size:60px 60px}
+    .ph-accent{position:absolute;right:0;top:0;bottom:0;width:40%;background:var(--navy-light);clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%)}
+    .ph-bg-text{position:absolute;right:4%;bottom:-20px;font-family:var(--font-disp);font-size:clamp(80px,14vw,180px);color:rgba(255,255,255,.03);line-height:1;white-space:nowrap;user-select:none}
+    .ph-content{position:relative;z-index:2}
+    .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.4);margin-bottom:24px}
+    .breadcrumb a{color:rgba(255,255,255,.4);transition:color .2s}
+    .breadcrumb a:hover{color:var(--gold)}
+    .breadcrumb span{color:rgba(255,255,255,.2)}
+    .breadcrumb strong{color:rgba(255,255,255,.7)}
+    .page-title{font-size:clamp(40px,6vw,72px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.03em;margin-bottom:20px;animation:fadeUp .7s ease both}
+    .page-title em{font-style:normal;color:var(--gold)}
+    .page-subtitle{font-size:16px;line-height:1.75;color:rgba(255,255,255,.6);max-width:500px;animation:fadeUp .7s .1s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* STATS BAR */
+    #stats-bar{background:var(--gold);padding:0}
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr)}
+    .stat-cell{padding:36px 32px;border-right:1px solid rgba(11,30,61,.12);text-align:center}
+    .stat-cell:last-child{border-right:none}
+    .stat-n{font-family:var(--font-disp);font-size:44px;color:var(--navy);line-height:1}
+    .stat-n span{font-size:30px}
+    .stat-l{font-size:13px;font-weight:600;color:rgba(11,30,61,.6);margin-top:4px}
+
+    /* FILTER */
+    #filter-bar{background:var(--off-white);padding:28px 0;border-bottom:1px solid var(--border);position:sticky;top:72px;z-index:100}
+    .filter-inner{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .filter-btn{padding:8px 18px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:#fff;border-radius:20px;cursor:pointer;color:var(--muted);transition:all .2s}
+    .filter-btn:hover{border-color:var(--navy);color:var(--navy)}
+    .filter-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+    /* WORKS GRID */
+    #works-list{padding:72px 0}
+    .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+    .work-card{background:#fff;position:relative;overflow:hidden;cursor:pointer;group:true}
+    .work-thumb{aspect-ratio:4/3;position:relative;overflow:hidden;background:linear-gradient(140deg,var(--navy-light),var(--navy))}
+    .work-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.15)}
+    .work-thumb-ph svg{opacity:.2}
+    .work-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,30,61,.9) 0%,rgba(11,30,61,.2) 60%,transparent 100%);opacity:0;transition:opacity .35s}
+    .work-card:hover .work-thumb-overlay{opacity:1}
+    .work-thumb-zoom{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+    .work-card:hover .work-thumb-zoom{transform:scale(1.07)}
+    /* 카드 본문 */
+    .work-body{padding:24px 24px 28px}
+    .work-cat-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gold-dark);background:rgba(232,166,0,.1);padding:4px 10px;border-radius:2px;margin-bottom:12px}
+    .work-title{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
+    .work-meta{display:flex;flex-wrap:wrap;gap:12px}
+    .work-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted)}
+    .work-meta-item svg{flex-shrink:0;color:var(--gold-dark);opacity:.7}
+    /* hover 오버레이 상세 */
+    .work-hover-detail{position:absolute;bottom:0;left:0;right:0;padding:24px;color:#fff;transform:translateY(8px);opacity:0;transition:transform .3s,opacity .3s;z-index:2}
+    .work-card:hover .work-hover-detail{transform:translateY(0);opacity:1}
+    .whd-title{font-size:17px;font-weight:700;margin-bottom:4px}
+    .whd-sub{font-size:13px;color:rgba(255,255,255,.7)}
+    .whd-arrow{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:.08em}
+
+    /* 숨김/표시 필터링 */
+    .work-card{transition:opacity .3s,transform .3s}
+    .work-card.hidden{display:none}
+
+    /* 대표 시공사례 (가로 전체) */
+    .work-featured{grid-column:1/-1}
+    .work-featured .work-thumb{aspect-ratio:21/7}
+
+    /* LOAD MORE */
+    .load-more-wrap{text-align:center;margin-top:48px}
+    .btn-load{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--navy);color:var(--navy);font-size:14px;font-weight:700;padding:14px 32px;border-radius:4px;background:#fff;cursor:pointer;transition:background .2s,color .2s}
+    .btn-load:hover{background:var(--navy);color:#fff}
+
+    /* CTA */
+    #cta-banner{background:var(--gold);padding:80px 0}
+    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+    .cta-text .section-label{color:var(--navy);opacity:.6}
+    .cta-text .section-title{color:var(--navy);margin-bottom:8px}
+    .cta-sub{font-size:16px;color:rgba(11,30,61,.65)}
+    .cta-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;font-size:16px;font-weight:700;padding:18px 36px;border-radius:4px;transition:background .2s,transform .15s}
+    .btn-dark:hover{background:var(--navy-light);transform:translateY(-2px)}
+    .cta-phone{font-size:26px;font-weight:900;color:var(--navy);letter-spacing:-.02em}
+
+    /* FOOTER */
+    #footer{background:var(--text);padding:72px 0 36px}
+    .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+    .footer-brand-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .footer-svg{display:block;width:36px;height:24px}
+    .footer-svg path{fill:#fff}
+    .footer-ko{font-size:20px;font-weight:900;color:#fff;letter-spacing:-.02em}
+    .footer-ko .acc{color:var(--gold)}
+    .footer-eng{font-family:var(--font-disp);font-size:10px;letter-spacing:.22em;color:rgba(255,255,255,.3);margin-top:2px}
+    .footer-p{font-size:13px;line-height:1.75;color:rgba(255,255,255,.45);max-width:260px}
+    .ft-col-title{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--gold);margin-bottom:16px}
+    .ft-col ul li{margin-bottom:10px}
+    .ft-col ul li a{font-size:14px;color:rgba(255,255,255,.5);transition:color .2s}
+    .ft-col ul li a:hover{color:#fff}
+    .ft-info p{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:8px;line-height:1.5}
+    .ft-info strong{color:rgba(255,255,255,.7);font-weight:600}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.25)}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .rd1{transition-delay:.08s} .rd2{transition-delay:.16s} .rd3{transition-delay:.24s} .rd4{transition-delay:.32s} .rd5{transition-delay:.4s}
+
+    @media(max-width:1024px){.works-grid{grid-template-columns:1fr 1fr}.footer-top{grid-template-columns:1fr 1fr;gap:32px}}
+    @media(max-width:768px){.section{padding:64px 0}.nav-menu,.btn-call{display:none}.hamburger{display:flex}.stats-row{grid-template-columns:1fr 1fr}.works-grid{grid-template-columns:1fr}.work-featured{grid-column:auto}.work-featured .work-thumb{aspect-ratio:4/3}.cta-inner{flex-direction:column;align-items:flex-start}.footer-top{grid-template-columns:1fr}.footer-bottom{flex-direction:column;align-items:flex-start}}
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo-wrap">
+        <svg class="logo-svg" viewBox="0 0 200 136" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M134,0 L88.8,19.8 L68.2,1 L0,65.6 L0,134 L2.7,134 L2.7,66.6 L68.3,4.2 L98.6,33.9 L66.7,64.7 L66.7,134 L69.3,134 L69.3,65.7 L70.5,65.5 L113.3,48.4 L130.7,65.9 L130.7,134 L133.3,134 L133.3,64.9 L102.1,33.8 L133.2,3.4 L197.3,65 L197.3,134 L200,134 L200,64 Z"/>
+        </svg>
+        <div class="logo-txt">
+          <span class="logo-ko">한건<span class="acc">이엔지</span></span>
+          <span class="logo-en">HANGUNENG.INC</span>
+        </div>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="about.html">회사소개</a></li>
+          <li><a href="service.html">사업분야</a></li>
+          <li><a href="works.html" class="active">시공실적</a></li>
+          <li><a href="contact.html">문의하기</a></li>
+        </ul>
+      </nav>
+      <a href="tel:02-476-3685" class="btn-call">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+        02-476-3685
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="메뉴"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section id="page-hero">
+  <div class="ph-grid"></div>
+  <div class="ph-accent"></div>
+  <div class="ph-bg-text">WORKS</div>
+  <div class="container">
+    <div class="ph-content">
+      <div class="breadcrumb"><a href="index.html">홈</a><span>›</span><strong>시공실적</strong></div>
+      <h1 class="page-title">현장이 말하는<br><em>기술력</em></h1>
+      <p class="page-subtitle">한건이엔지가 직접 시공한 주요 프로젝트를 소개합니다. 산업시설부터 신재생에너지까지 다양한 현장 경험이 있습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="stats-bar">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-cell"><div class="stat-n" id="sw1">0<span>+</span></div><div class="stat-l">전체 시공 건수</div></div>
+      <div class="stat-cell"><div class="stat-n" id="sw2">0<span>건</span></div><div class="stat-l">산업시설</div></div>
+      <div class="stat-cell"><div class="stat-n" id="sw3">0<span>건</span></div><div class="stat-l">상업·주거시설</div></div>
+      <div class="stat-cell"><div class="stat-n" id="sw4">0<span>건</span></div><div class="stat-l">신재생에너지</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div id="filter-bar">
+  <div class="container">
+    <div class="filter-inner">
+      <button class="filter-btn active" data-cat="all">전체</button>
+      <button class="filter-btn" data-cat="industrial">산업시설</button>
+      <button class="filter-btn" data-cat="commercial">상업시설</button>
+      <button class="filter-btn" data-cat="residential">주거시설</button>
+      <button class="filter-btn" data-cat="renewable">신재생에너지</button>
+      <button class="filter-btn" data-cat="public">공공시설</button>
+    </div>
+  </div>
+</div>
+
+<!-- WORKS LIST -->
+<section id="works-list">
+  <div class="container">
+    <div class="works-grid" id="works-grid">
+
+      <!-- 대표 시공사례 -->
+      <div class="work-card work-featured reveal" data-cat="industrial">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#1D3A62,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">○○ 제조공장 수배전반 및 동력공사</div>
+            <div class="whd-sub">경기도 · 2024 · 규모 2,800kW · 공기 60일</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">산업시설</div>
+          <div class="work-title">○○ 제조공장 수배전반 및 동력공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>경기도</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>2,800kW</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 카드들 -->
+      <div class="work-card reveal rd1" data-cat="commercial">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#1D3A62)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">오피스 빌딩 전기설비 공사</div><div class="whd-sub">서울 · 2024 · 지상 12층</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">상업시설</div>
+          <div class="work-title">오피스 빌딩 전기설비 공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2"/></svg>지상 12층</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal rd2" data-cat="renewable">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#0B2244,#1D3A62)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">태양광 발전소 계통연계 공사</div><div class="whd-sub">충남 · 2023 · 500kW</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">신재생에너지</div>
+          <div class="work-title">태양광 발전소 계통연계 공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>충남</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>500kW</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal rd3" data-cat="residential">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#1D3A62,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">아파트 단지 전기 인입 및 간선공사</div><div class="whd-sub">경기 · 2023 · 800세대</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">주거시설</div>
+          <div class="work-title">아파트 단지 전기 인입 및 간선공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>경기</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>800세대</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal rd1" data-cat="public">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">공공기관 비상발전 및 소방공사</div><div class="whd-sub">인천 · 2023</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">공공시설</div>
+          <div class="work-title">공공기관 비상발전 및 소방공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>인천</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal rd2" data-cat="industrial">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#0B1E3D,#1D3A62)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">물류센터 조명 및 동력배선 공사</div><div class="whd-sub">경기 · 2023 · 연면적 12,000㎡</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">산업시설</div>
+          <div class="work-title">물류센터 조명 및 동력배선 공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>경기</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>12,000㎡</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal rd3" data-cat="renewable">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#1D3A62,#132847)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">ESS 설치 및 태양광 연동 공사</div><div class="whd-sub">전북 · 2022 · 250kWh</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">신재생에너지</div>
+          <div class="work-title">ESS 설치 및 태양광 연동 공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>전북</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>250kWh</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal rd1" data-cat="commercial">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#0B1E3D,#132847)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">상가 건물 LED 조명 교체 공사</div><div class="whd-sub">서울 · 2022 · 8개층</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">상업시설</div>
+          <div class="work-title">상가 건물 LED 조명 교체 공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card reveal rd2" data-cat="industrial">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#1D3A62)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path d="M2 20h20M4 20V10l8-6 8 6v10"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">식품공장 전기설비 시공</div><div class="whd-sub">충북 · 2022 · 1,200kW</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">산업시설</div>
+          <div class="work-title">식품공장 전기설비 시공</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>충북</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>1,200kW</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /works-grid -->
+
+    <div class="load-more-wrap">
+      <button class="btn-load" id="load-more">
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        더 많은 실적 보기
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="cta-banner">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="cta-text">
+        <p class="section-label">Contact Us</p>
+        <h2 class="section-title">다음 현장, 함께하겠습니다</h2>
+        <p class="cta-sub">어떤 규모의 전기공사도 전문적으로 시공합니다. 견적은 무료입니다.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-dark">문의하기 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+        <a href="tel:02-476-3685" class="cta-phone">02-476-3685</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-row">
+          <svg class="footer-svg" viewBox="0 0 200 136" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M134,0 L88.8,19.8 L68.2,1 L0,65.6 L0,134 L2.7,134 L2.7,66.6 L68.3,4.2 L98.6,33.9 L66.7,64.7 L66.7,134 L69.3,134 L69.3,65.7 L70.5,65.5 L113.3,48.4 L130.7,65.9 L130.7,134 L133.3,134 L133.3,64.9 L102.1,33.8 L133.2,3.4 L197.3,65 L197.3,134 L200,134 L200,64 Z"/></svg>
+          <div><div class="footer-ko">한건<span class="acc">이엔지</span></div><div class="footer-eng">HANGUNENG.INC</div></div>
+        </div>
+        <p class="footer-p">믿을 수 있는 기술력과 성실한 시공으로 고객의 신뢰를 쌓아온 전기공사 전문기업입니다.</p>
+      </div>
+      <div class="ft-col"><div class="ft-col-title">바로가기</div><ul><li><a href="about.html">회사 소개</a></li><li><a href="service.html">사업 분야</a></li><li><a href="works.html">시공 실적</a></li><li><a href="contact.html">문의하기</a></li></ul></div>
+      <div class="ft-col"><div class="ft-col-title">사업 분야</div><ul><li><a href="service.html#electric">전기공사</a></li><li><a href="service.html#fire">소방·설비공사</a></li><li><a href="service.html#renewable">신재생에너지</a></li><li><a href="service.html#maintenance">유지보수 점검</a></li></ul></div>
+      <div class="ft-info ft-col"><div class="ft-col-title">연락처</div><p><strong>전화</strong> 02-476-3685</p><p><strong>이메일</strong> info@hanguneng.co.kr</p><p><strong>주소</strong> 주소를 입력해주세요</p><p style="margin-top:10px"><strong>개업일</strong> 2020년 8월 20일</p></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2020–<span id="footer-year"></span> 한건이엔지 HANGUNENG.INC. All rights reserved.</p>
+      <p>전기공사업 면허 보유</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const founded = new Date('2020-08-20');
+  const now = new Date();
+  const ageYrs = Math.floor((now - founded)/(1000*60*60*24*365.25));
+
+  /* 카운터 */
+  function counter(el, target, sfx, dur) {
+    if(!el) return; dur=dur||1400;
+    const t0=performance.now();
+    const tick=ts=>{
+      const p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.innerHTML=Math.floor(e*target)+'<span>'+sfx+'</span>';
+      if(p<1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  let fired=false;
+  const sObs=new IntersectionObserver(entries=>{
+    if(!fired && entries.some(e=>e.isIntersecting)){
+      fired=true;
+      counter(document.getElementById('sw1'),350,'+');
+      counter(document.getElementById('sw2'),120,'건');
+      counter(document.getElementById('sw3'),180,'건');
+      counter(document.getElementById('sw4'),50,'건');
+      sObs.disconnect();
+    }
+  },{threshold:0.3});
+  const sb=document.getElementById('stats-bar');
+  if(sb) sObs.observe(sb);
+
+  /* 필터 */
+  const filterBtns=document.querySelectorAll('.filter-btn');
+  const cards=document.querySelectorAll('.work-card');
+  filterBtns.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      filterBtns.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat=btn.dataset.cat;
+      cards.forEach(card=>{
+        if(cat==='all'||card.dataset.cat===cat){
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  /* Reveal */
+  const rObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible')});
+  },{threshold:0.08,rootMargin:'0px 0px -24px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>rObs.observe(el));
+
+  /* 더보기 버튼 */
+  document.getElementById('load-more')?.addEventListener('click',function(){
+    this.textContent='준비 중입니다. 전화로 문의해주세요 😊';
+    this.disabled=true;
+  });
+
+  document.getElementById('footer-year').textContent=now.getFullYear();
+  document.getElementById('hamburger')?.addEventListener('click',()=>alert('모바일 메뉴 추후 구현'));
+</script>
+</body>
+</html>
