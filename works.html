@@ -451,7 +451,7 @@
   const sObs=new IntersectionObserver(entries=>{
     if(!fired && entries.some(e=>e.isIntersecting)){
       fired=true;
-      counter(document.getElementById('sw1'),350,'+');
+      counter(document.getElementById('sw1'),120,'+');
       counter(document.getElementById('sw2'),120,'건');
       counter(document.getElementById('sw3'),180,'건');
       counter(document.getElementById('sw4'),50,'건');
