@@ -317,6 +317,14 @@
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
+
+    /* 우수시공패 이미지 박스 */
+    .tl-award-img { margin-top:16px; border-radius:4px; overflow:hidden; border:1px solid var(--border); max-width:260px; }
+    .tl-award-img img { width:100%; display:block; }
+    .tl-award-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:24px 16px; background:var(--off-white); text-align:center; }
+    .tl-award-placeholder svg { color:var(--gold); opacity:.7; }
+    .tl-award-placeholder span { font-size:13px; font-weight:700; color:var(--navy); }
+    .tl-award-placeholder small { font-size:11px; color:var(--muted); }
   </style>
 </head>
 <body>
@@ -376,12 +384,8 @@
   <div class="container">
     <div class="greeting-inner">
       <div class="greeting-img reveal">
-        <div class="greeting-img-ph">
-          <svg width="52" height="52" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-          </svg>
-          <span>대표자 사진</span>
-        </div>
+        <img src="images/hangun_engineer_electric.png" alt="한건이엔지 대표 조한율"
+          style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
       </div>
       <div class="reveal rd1">
         <div class="ceo-label">CEO Message</div>
@@ -390,7 +394,7 @@
           최우선으로 생각합니다."
         </p>
         <p class="greeting-body">
-          안녕하십니까, 한건이엔지 대표 [대표자명]입니다.<br><br>
+          안녕하십니까, 한건이엔지 대표 조한율입니다.<br><br>
           저희 한건이엔지는 전기공사 전문기업으로서
           2020년 창업 이후 산업시설·상업시설·공공기관·주거시설 등
           다양한 분야의 전기공사를 성실하게 수행해왔습니다.
@@ -407,7 +411,7 @@
         </p>
         <div class="ceo-sig">
           <div>
-            <div class="ceo-sig-name">한건이엔지 대표</div>
+            <div class="ceo-sig-name">한건이엔지 대표 조한율</div>
             <div class="ceo-sig-title">HANGUNENG.INC CEO</div>
           </div>
         </div>
@@ -491,9 +495,9 @@
       <!-- 2021 -->
       <div class="timeline-item left reveal">
         <div class="tl-left">
-          <div class="tl-month">04월</div>
-          <div class="tl-title">첫 산업시설 수주</div>
-          <div class="tl-desc">경기 지역 제조공장 수배전반 및 동력공사 첫 대형 프로젝트 수행.</div>
+          <div class="tl-month">연간 실적</div>
+          <div class="tl-title">매출 5억 달성</div>
+          <div class="tl-desc">창업 1년 만에 연 매출 5억 원을 달성하며 안정적인 성장 기반을 마련했습니다.</div>
         </div>
         <div class="tl-dot tl-center"><div class="tl-dot-inner"></div></div>
         <div class="tl-right">
@@ -508,20 +512,31 @@
         </div>
         <div class="tl-dot tl-center"><div class="tl-dot-inner"></div></div>
         <div class="tl-right">
-          <div class="tl-month">03월</div>
-          <div class="tl-title">소방시설공사업 면허 취득</div>
-          <div class="tl-desc">소방시설 설계·시공 사업 영역 확장. 복합 시설 원스톱 공사 가능.</div>
+          <div class="tl-month">01월</div>
+          <div class="tl-title">첫 나라장터 입찰 수주</div>
+          <div class="tl-desc">공공조달 플랫폼 나라장터를 통한 첫 공공기관 입찰 수주에 성공하며 공공 분야로 사업 영역을 확장했습니다.</div>
         </div>
       </div>
 
       <!-- 2023 -->
       <div class="timeline-item left reveal">
         <div class="tl-left">
-          <div class="tl-month">06월</div>
-          <div class="tl-title">신재생에너지 사업 진출</div>
-          <div class="tl-desc">태양광 발전설비 계통연계 공사 전문 인력 확충, 신재생에너지 분야 본격 시공 시작.</div>
+          <div class="tl-month">04월</div>
+          <div class="tl-title">2022년 전기안전 우수시공패 수상</div>
+          <div class="tl-desc">전기안전 시공 우수 업체로 선정되어 우수시공패를 수상했습니다. 안전시공 원칙의 결실입니다.</div>
+          <div class="tl-award-img">
+            <img src="images/award_2022.jpg" alt="2022년 전기안전 우수시공패"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="tl-award-placeholder" style="display:none;">
+              <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+              <span>우수시공패 이미지</span>
+              <small>images/award_2022.jpg 파일을 추가해주세요</small>
+            </div>
+          </div>
         </div>
-        <div class="tl-dot tl-center"><div class="tl-dot-inner"></div></div>
+        <div class="tl-dot tl-center"><div class="tl-dot-inner" style="border-color:var(--gold);"></div></div>
         <div class="tl-right">
           <div class="tl-year">2023</div>
         </div>
@@ -534,22 +549,23 @@
         </div>
         <div class="tl-dot tl-center"><div class="tl-dot-inner"></div></div>
         <div class="tl-right">
-          <div class="tl-month">상반기</div>
-          <div class="tl-title">누적 완공 120건 돌파</div>
-          <div class="tl-desc">산업·상업·공공·주거 등 전 분야에 걸쳐 누적 완공 120건을 돌파하며 지속 성장.</div>
+          <div class="tl-month">12월</div>
+          <div class="tl-title">신재생에너지 국가 자격증 취득</div>
+          <div class="tl-desc">신재생에너지발전설비기사 국가 자격증을 취득하여 태양광·ESS·전기차충전소 등 신재생에너지 사업 진출의 기반을 준비했습니다.</div>
         </div>
       </div>
 
-      <!-- 2025 ~  -->
+      <!-- 2025 -->
       <div class="timeline-item left reveal">
         <div class="tl-left">
           <div class="tl-month">현재</div>
           <div class="tl-title">지속 성장 중</div>
-          <div class="tl-desc">더 안전하고 전문적인 전기공사 서비스로 고객의 신뢰에 보답하겠습니다.</div>
+          <div class="tl-desc">더 안전하고 전문적인 전기공사 서비스로 고객의 신뢰에 보답하겠습니다</div>
         </div>
         <div class="tl-dot tl-center"><div class="tl-dot-inner" style="background:var(--gold);border-color:var(--gold);"></div></div>
         <div class="tl-right">
           <div class="tl-year" style="color:var(--gold);">2025</div>
+		  <div class="tl-year" style="color:var(--gold);">2026</div>
         </div>
       </div>
 
