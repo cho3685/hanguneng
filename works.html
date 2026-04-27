@@ -86,8 +86,9 @@
     .work-thumb-ph svg{opacity:.2}
     .work-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,30,61,.9) 0%,rgba(11,30,61,.2) 60%,transparent 100%);opacity:0;transition:opacity .35s}
     .work-card:hover .work-thumb-overlay{opacity:1}
-    .work-thumb-zoom{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
-    .work-card:hover .work-thumb-zoom{transform:scale(1.07)}
+    .work-thumb img { width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94); }
+    .work-item:hover .work-thumb img,
+    .work-card:hover .work-thumb img { transform:scale(1.06); }
     /* 카드 본문 */
     .work-body{padding:24px 24px 28px}
     .work-cat-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--gold-dark);background:rgba(232,166,0,.1);padding:4px 10px;border-radius:2px;margin-bottom:12px}
@@ -215,7 +216,7 @@
   <div class="container">
     <div class="filter-inner">
       <button class="filter-btn active" data-cat="all">전체</button>
-      <button class="filter-btn" data-cat="industrial">산업시설</button>
+      <button class="filter-btn" data-cat="industrial" style="opacity:.5;cursor:not-allowed;" disabled>산업시설 <span style="background:var(--navy);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;margin-left:2px;">준비중</span></button>
       <button class="filter-btn" data-cat="commercial">상업시설</button>
       <button class="filter-btn" data-cat="residential">주거시설</button>
       <button class="filter-btn" data-cat="renewable" style="opacity:.5;cursor:not-allowed;" disabled>신재생에너지 <span style="background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;margin-left:2px;">준비중</span></button>
@@ -232,46 +233,328 @@
   <div class="container">
     <div class="works-grid" id="works-grid">
 
-      <!-- 대표 시공사례 -->
-      <div class="work-card work-featured reveal" data-cat="industrial">
-        <div class="work-thumb" style="background:linear-gradient(140deg,#1D3A62,#0B1E3D)">
-          <div class="work-thumb-ph"><svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg></div>
+      <!-- ═══ 상업시설 5건 ═══ -->
+
+      <!-- 1. 한남동 448 근린생활시설 (와이드 대표카드) -->
+      <div class="work-card work-featured reveal" data-cat="commercial">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/한남동_448_근린생활시설_전기공사.png" alt="한남동 448 근린생활시설"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .6s ease;">
           <div class="work-thumb-overlay"></div>
           <div class="work-hover-detail">
-            <div class="whd-title">○○ 제조공장 수배전반 및 동력공사</div>
-            <div class="whd-sub">경기도 · 2024 · 규모 2,800kW · 공기 60일</div>
+            <div class="whd-title">한남동 448 근린생활시설 전기공사</div>
+            <div class="whd-sub">서울 용산구 · 근린생활시설</div>
             <div class="whd-arrow">상세보기 →</div>
           </div>
         </div>
         <div class="work-body">
-          <div class="work-cat-badge">산업시설</div>
-          <div class="work-title">○○ 제조공장 수배전반 및 동력공사</div>
+          <div class="work-cat-badge">상업시설</div>
+          <div class="work-title">한남동 448 근린생활시설 전기공사</div>
           <div class="work-meta">
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>경기도</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>2,800kW</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 용산구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg>근린생활시설</div>
           </div>
         </div>
       </div>
 
-      <!-- 카드들 -->
+      <!-- 2. 대방동 384-9 근린생활시설 -->
       <div class="work-card reveal rd1" data-cat="commercial">
-        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#1D3A62)">
-          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5"/></svg></div>
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/대방동_384-9_근린생활_시설.png" alt="대방동 384-9 근린생활시설"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
           <div class="work-thumb-overlay"></div>
-          <div class="work-hover-detail"><div class="whd-title">오피스 빌딩 전기설비 공사</div><div class="whd-sub">서울 · 2024 · 지상 12층</div><div class="whd-arrow">상세보기 →</div></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">대방동 384-9 근린생활시설</div>
+            <div class="whd-sub">서울 동작구 · 근린생활시설</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
         </div>
         <div class="work-body">
           <div class="work-cat-badge">상업시설</div>
-          <div class="work-title">오피스 빌딩 전기설비 공사</div>
+          <div class="work-title">대방동 384-9 근린생활시설</div>
           <div class="work-meta">
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2"/></svg>지상 12층</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 동작구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg>근린생활시설</div>
           </div>
         </div>
       </div>
 
+      <!-- 3. 성수동1가 656-431 근린생활시설 -->
+      <div class="work-card reveal rd2" data-cat="commercial">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/성수동1가_656-431_근린생활시설.png" alt="성수동1가 근린생활시설"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">성수동1가 656-431 근린생활시설</div>
+            <div class="whd-sub">서울 성동구 · 근린생활시설</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">상업시설</div>
+          <div class="work-title">성수동1가 656-431 근린생활시설</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 성동구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg>근린생활시설</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 성동구 용답동 9-12 근린생활시설 및 도시형생활주택 -->
+      <div class="work-card reveal rd1" data-cat="commercial">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/성동구_용답동_9-12_근린생활시설_및_도시형생활주택.png" alt="성동구 용답동 근린생활시설"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">성동구 용답동 9-12 근린생활시설</div>
+            <div class="whd-sub">서울 성동구 · 근린생활시설 및 도시형생활주택</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">상업시설</div>
+          <div class="work-title">성동구 용답동 9-12 근린생활시설</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 성동구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg>근린생활시설</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 송촌동 578-49 근린생활시설 신축공사 -->
+      <div class="work-card reveal rd2" data-cat="commercial">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/송촌동_578-49_근린생활시설_신축공사.png" alt="송촌동 578-49 근린생활시설"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">송촌동 578-49 근린생활시설 신축공사</div>
+            <div class="whd-sub">대전 동구 · 근린생활시설 신축</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">상업시설</div>
+          <div class="work-title">송촌동 578-49 근린생활시설 신축공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>대전 동구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg>근린생활시설</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 주거시설 5건 ═══ -->
+
+      <!-- 6. 천호동 191-40 DYD하우스21차 (와이드) -->
+      <div class="work-card work-featured reveal" data-cat="residential">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/천호동_191-40_DYD하우스21차.png" alt="천호동 DYD하우스21차"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">천호동 191-40 DYD하우스 21차</div>
+            <div class="whd-sub">서울 강동구 · 도시형생활주택</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">주거시설</div>
+          <div class="work-title">천호동 191-40 DYD하우스 21차</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 강동구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>도시형생활주택</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. 군자동 6-1 도시형생활주택 -->
+      <div class="work-card reveal rd1" data-cat="residential">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/군자동_6-1외_2필지_도시형생활주택.png" alt="군자동 도시형생활주택"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">군자동 6-1외 2필지 도시형생활주택</div>
+            <div class="whd-sub">서울 광진구 · 도시형생활주택</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">주거시설</div>
+          <div class="work-title">군자동 6-1외 2필지 도시형생활주택</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 광진구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>도시형생활주택</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. 노량진동 205-20 다세대주택 -->
+      <div class="work-card reveal rd2" data-cat="residential">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/노량진동_205-20번지_다세대주택.png" alt="노량진동 다세대주택"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">노량진동 205-20번지 다세대주택</div>
+            <div class="whd-sub">서울 동작구 · 다세대주택</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">주거시설</div>
+          <div class="work-title">노량진동 205-20번지 다세대주택</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 동작구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>다세대주택</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. 자양동 632-28,23 도시형생활주택 -->
+      <div class="work-card reveal rd1" data-cat="residential">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/자양동_632-28_23_도시형_생활주택.png" alt="자양동 도시형생활주택"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">자양동 632-28,23 도시형생활주택</div>
+            <div class="whd-sub">서울 광진구 · 도시형생활주택</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">주거시설</div>
+          <div class="work-title">자양동 632-28,23 도시형생활주택</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 광진구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>도시형생활주택</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. 구로동 425-79 도시형생활주택 신축공사 -->
+      <div class="work-card reveal rd2" data-cat="residential">
+        <div class="work-thumb" style="position:relative;overflow:hidden;background:#0B1E3D;">
+          <img src="images/구로동_425-79_도시형_생활주택신축공사.png" alt="구로동 도시형생활주택"
+            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;">
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail">
+            <div class="whd-title">구로동 425-79 도시형생활주택 신축공사</div>
+            <div class="whd-sub">서울 구로구 · 도시형생활주택</div>
+            <div class="whd-arrow">상세보기 →</div>
+          </div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">주거시설</div>
+          <div class="work-title">구로동 425-79 도시형생활주택 신축공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울 구로구</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>도시형생활주택</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ 공공시설 ═══ -->
+      <div class="work-card reveal rd1" data-cat="public">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">2022 보안등 신설 및 개량공사(연간단가)</div><div class="whd-sub">서울 · 2022</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">공공시설</div>
+          <div class="work-title">2022 보안등 신설 및 개량공사(연간단가)</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022</div>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="work-card reveal rd2" data-cat="public">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">서울 경동초 외 1교(서울용곡초) 냉난방개선 전기공사</div><div class="whd-sub">서울 · 2023</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">공공시설</div>
+          <div class="work-title">서울 경동초 외 1교(서울용곡초) 냉난방개선 전기공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="work-card reveal rd1" data-cat="public">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">2022-23 사용자 기계실 연산부 전원설치 공사</div><div class="whd-sub">서울 · 2023</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">공공시설</div>
+          <div class="work-title">2022-23 사용자 기계실 연산부 전원설치 공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
+          </div>
+        </div>
+      </div>
+	  
+	  <div class="work-card reveal rd2" data-cat="public">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">중랑천 제방 보안등 개량공사</div><div class="whd-sub">서울 · 2023</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">공공시설</div>
+          <div class="work-title">중랑천 제방 보안등 개량공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</div>
+          </div>
+        </div>
+      </div>
+<!--	  
+	  <div class="work-card reveal rd1" data-cat="public">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">2022-23 사용자 기계실 연산부 전원설치 공사<div class="whd-sub">서울 · 2023</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">공공시설</div>
+          <div class="work-title">2022-23 사용자 기계실 연산부 전원설치 공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
+          </div>
+        </div>
+      </div>
+ 
+	  <div class="work-card reveal rd2" data-cat="public">
+        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
+          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
+          <div class="work-thumb-overlay"></div>
+          <div class="work-hover-detail"><div class="whd-title">중랑천 제방 보안등 개량공사<div class="whd-sub">서울 · 2024</div><div class="whd-arrow">상세보기 →</div></div>
+        </div>
+        <div class="work-body">
+          <div class="work-cat-badge">공공시설</div>
+          <div class="work-title">중랑천 제방 보안등 개량공사</div>
+          <div class="work-meta">
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
+            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2024</div>
+          </div>
+        </div>
+      </div>
+-->
+      <!-- ═══ 신재생에너지 준비중 ═══ -->
       <div class="work-card reveal rd2" data-cat="renewable" style="opacity:.5;pointer-events:none;">
         <div style="position:absolute;top:12px;left:12px;z-index:5;background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:.1em;">준비중</div>
         <div class="work-thumb" style="background:linear-gradient(140deg,#0B2244,#1D3A62)">
@@ -280,108 +563,8 @@
         </div>
         <div class="work-body">
           <div class="work-cat-badge">신재생에너지</div>
-          <div class="work-title">태양광 발전소 계통연계 공사</div>
-          <div class="work-meta">
-            <div class="work-meta-item">서비스 준비중</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-card reveal rd3" data-cat="residential">
-        <div class="work-thumb" style="background:linear-gradient(140deg,#1D3A62,#0B1E3D)">
-          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div class="work-thumb-overlay"></div>
-          <div class="work-hover-detail"><div class="whd-title">아파트 단지 전기 인입 및 간선공사</div><div class="whd-sub">경기 · 2023 · 800세대</div><div class="whd-arrow">상세보기 →</div></div>
-        </div>
-        <div class="work-body">
-          <div class="work-cat-badge">주거시설</div>
-          <div class="work-title">아파트 단지 전기 인입 및 간선공사</div>
-          <div class="work-meta">
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>경기</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>800세대</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-card reveal rd1" data-cat="public">
-        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#0B1E3D)">
-          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4z"/></svg></div>
-          <div class="work-thumb-overlay"></div>
-          <div class="work-hover-detail"><div class="whd-title">공공기관 비상발전 및 소방공사</div><div class="whd-sub">인천 · 2023</div><div class="whd-arrow">상세보기 →</div></div>
-        </div>
-        <div class="work-body">
-          <div class="work-cat-badge">공공시설</div>
-          <div class="work-title">공공기관 비상발전 및 소방공사</div>
-          <div class="work-meta">
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>인천</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-card reveal rd2" data-cat="industrial">
-        <div class="work-thumb" style="background:linear-gradient(140deg,#0B1E3D,#1D3A62)">
-          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-          <div class="work-thumb-overlay"></div>
-          <div class="work-hover-detail"><div class="whd-title">물류센터 조명 및 동력배선 공사</div><div class="whd-sub">경기 · 2023 · 연면적 12,000㎡</div><div class="whd-arrow">상세보기 →</div></div>
-        </div>
-        <div class="work-body">
-          <div class="work-cat-badge">산업시설</div>
-          <div class="work-title">물류센터 조명 및 동력배선 공사</div>
-          <div class="work-meta">
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>경기</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2023</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>12,000㎡</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-card reveal rd3" data-cat="renewable" style="opacity:.5;pointer-events:none;">
-        <div style="position:absolute;top:12px;left:12px;z-index:5;background:var(--gold);color:var(--navy);font-size:10px;font-weight:700;padding:3px 9px;border-radius:2px;letter-spacing:.1em;">준비중</div>
-        <div class="work-thumb" style="background:linear-gradient(140deg,#1D3A62,#132847)">
-          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-          <div class="work-thumb-overlay"></div>
-        </div>
-        <div class="work-body">
-          <div class="work-cat-badge">신재생에너지</div>
-          <div class="work-title">ESS 설치 및 태양광 연동 공사</div>
-          <div class="work-meta">
-            <div class="work-meta-item">서비스 준비중</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-card reveal rd1" data-cat="commercial">
-        <div class="work-thumb" style="background:linear-gradient(140deg,#0B1E3D,#132847)">
-          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-          <div class="work-thumb-overlay"></div>
-          <div class="work-hover-detail"><div class="whd-title">상가 건물 LED 조명 교체 공사</div><div class="whd-sub">서울 · 2022 · 8개층</div><div class="whd-arrow">상세보기 →</div></div>
-        </div>
-        <div class="work-body">
-          <div class="work-cat-badge">상업시설</div>
-          <div class="work-title">상가 건물 LED 조명 교체 공사</div>
-          <div class="work-meta">
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>서울</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="work-card reveal rd2" data-cat="industrial">
-        <div class="work-thumb" style="background:linear-gradient(140deg,#132847,#1D3A62)">
-          <div class="work-thumb-ph"><svg width="48" height="48" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path d="M2 20h20M4 20V10l8-6 8 6v10"/></svg></div>
-          <div class="work-thumb-overlay"></div>
-          <div class="work-hover-detail"><div class="whd-title">식품공장 전기설비 시공</div><div class="whd-sub">충북 · 2022 · 1,200kW</div><div class="whd-arrow">상세보기 →</div></div>
-        </div>
-        <div class="work-body">
-          <div class="work-cat-badge">산업시설</div>
-          <div class="work-title">식품공장 전기설비 시공</div>
-          <div class="work-meta">
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>충북</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>2022</div>
-            <div class="work-meta-item"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>1,200kW</div>
-          </div>
+          <div class="work-title">영농형 태양광 발전설비 공사</div>
+          <div class="work-meta"><div class="work-meta-item">장흥 영농형 보급 지원 프로젝트 검토중</div></div>
         </div>
       </div>
 
@@ -460,7 +643,7 @@
         </p>
         <p style="font-size:15px;line-height:1.9;color:rgba(255,255,255,.6);">
           현재도 주요 프로젝트의 기술 검토와 현장 자문에 참여하며,
-          대표 조한율과 함께 더 안전하고 완성도 높은 시공을 만들어가고 있습니다.
+          한건이엔지 임직원과 함께 더 안전하고 완성도 높은 시공을 만들어가고 있습니다.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;">
           <span style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid rgba(232,166,0,.35);border-radius:2px;font-size:12px;font-weight:600;color:rgba(255,255,255,.7);">
@@ -469,7 +652,7 @@
           </span>
           <span style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid rgba(232,166,0,.35);border-radius:2px;font-size:12px;font-weight:600;color:rgba(255,255,255,.7);">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--gold)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-            산업·상업시설 전기공사
+            주거·상업시설 전기공사
           </span>
           <span style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid rgba(232,166,0,.35);border-radius:2px;font-size:12px;font-weight:600;color:rgba(255,255,255,.7);">
             <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="var(--gold)" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
