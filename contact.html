@@ -175,26 +175,33 @@
     .t-car{background:var(--border);color:var(--navy)}
 
     /* ══ 지도 섹션 ══ */
-    #map-section{background:var(--navy);padding:0}
-    .map-inner{display:grid;grid-template-columns:1fr 2fr}
-    .map-info{padding:64px 48px;display:flex;flex-direction:column;justify-content:center}
+    #map-section{background:var(--navy);padding:64px 0}
+    .map-inner{
+      display:grid;
+      grid-template-columns:300px 1fr;
+      gap:40px;
+      align-items:stretch;
+      max-width:1140px;
+      margin:0 auto;
+      padding:0 24px;
+    }
+    .map-info{display:flex;flex-direction:column;justify-content:center;padding:0}
     .map-info .section-label{color:var(--gold)}
-    .map-info .section-title{color:#fff;margin-bottom:20px}
-    .map-address{font-size:15px;line-height:1.85;color:rgba(255,255,255,.7)}
+    .map-info .section-title{color:#fff;margin-bottom:16px;font-size:clamp(22px,3vw,32px)}
+    .map-address{font-size:14px;line-height:1.85;color:rgba(255,255,255,.7)}
     .map-address strong{color:#fff;display:block;margin-bottom:4px}
-    .map-divider{width:40px;height:3px;background:var(--gold);margin:28px 0}
+    .map-divider{width:40px;height:3px;background:var(--gold);margin:20px 0}
     .map-links{display:flex;flex-direction:column;gap:10px}
     .map-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold);transition:gap .2s}
     .map-link:hover{gap:12px}
-    .map-frame{position:relative;background:var(--navy-mid);min-height:420px;overflow:hidden}
-    /* 구글맵 대체 — 실제 운영 시 iframe으로 교체 */
-    .map-placeholder{width:100%;height:100%;min-height:420px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;background:linear-gradient(140deg,#1D3A62,#0B1E3D);position:relative}
-    .map-pin-icon{width:56px;height:56px;background:var(--gold);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:flex;align-items:center;justify-content:center}
-    .map-pin-icon svg{transform:rotate(45deg);color:var(--navy)}
-    .map-note{font-size:13px;color:rgba(255,255,255,.5);text-align:center;line-height:1.6}
-    .map-note a{color:var(--gold);text-decoration:underline}
-    /* 실제 지도 삽입 시 사용할 iframe 스타일 */
-    .map-frame iframe{width:100%;height:100%;min-height:420px;border:0;display:block;filter:contrast(1.05)}
+    .map-frame{
+      position:relative;
+      border-radius:4px;
+      overflow:hidden;
+      height:360px;
+      min-height:unset;
+    }
+    .map-frame iframe{width:100%;height:100%;border:0;display:block;}
 
     /* ══ FAQ ══ */
     #faq{background:var(--off-white);padding:96px 0}
@@ -581,6 +588,15 @@
       </div>
     </div>
     <div class="map-frame">
+	  <iframe
+        src="https://maps.google.com/maps?q=서울+강동구+천중로35길+14&z=17&output=embed&hl=ko"
+        width="100%"
+        height="100%"
+        style="border:0;display:block;min-height:420px;"
+        allowfullscreen
+        loading="lazy"
+        title="한건이엔지 위치 - 서울 강동구 천중로35길 14">
+      </iframe>
       <!--
         ★ 실제 운영 시 아래 주석 해제 후 주소에 맞는 Google Maps iframe으로 교체하세요.
         <iframe
@@ -595,7 +611,7 @@
           src="https://map.naver.com/v5/embed?lng=127.0&lat=37.5&zoom=16"
           width="100%" height="420" style="border:0;display:block">
         </iframe>
-		-->
+		
      
       <div class="map-placeholder">
         <div class="map-pin-icon">
@@ -610,6 +626,7 @@
           <a href="https://map.naver.com/" target="_blank">네이버 지도에서 검색하기 →</a>
         </div>
       </div>
+	  -->
     </div>
   </div>
 </section>

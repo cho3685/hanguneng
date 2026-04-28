@@ -204,9 +204,9 @@
   <div class="container">
     <div class="stats-row">
       <div class="stat-cell"><div class="stat-n" id="sw1">0<span>+</span></div><div class="stat-l">전체 시공 건수</div></div>
-      <div class="stat-cell"><div class="stat-n" id="sw2">0<span>건</span></div><div class="stat-l">산업시설</div></div>
-      <div class="stat-cell"><div class="stat-n" id="sw3">0<span>건</span></div><div class="stat-l">상업·주거시설</div></div>
-      <div class="stat-cell"><div class="stat-n" id="sw4">0<span>건</span></div><div class="stat-l">신재생에너지</div></div>
+      <div class="stat-cell"><div class="stat-n" id="sw2">0<span>건</span></div><div class="stat-l">상업시설</div></div>
+      <div class="stat-cell"><div class="stat-n" id="sw3">0<span>건</span></div><div class="stat-l">주거시설</div></div>
+      <div class="stat-cell"><div class="stat-n" id="sw4">0<span>건</span></div><div class="stat-l">공공시설</div></div>
     </div>
   </div>
 </div>
@@ -702,9 +702,9 @@
     if(!fired && entries.some(e=>e.isIntersecting)){
       fired=true;
       counter(document.getElementById('sw1'),120,'+');
-      counter(document.getElementById('sw2'),120,'건');
-      counter(document.getElementById('sw3'),180,'건');
-      counter(document.getElementById('sw4'),50,'건');
+      counter(document.getElementById('sw2'),27,'건');
+      counter(document.getElementById('sw3'),88,'건');
+      counter(document.getElementById('sw4'),5,'건');
       sObs.disconnect();
     }
   },{threshold:0.3});
